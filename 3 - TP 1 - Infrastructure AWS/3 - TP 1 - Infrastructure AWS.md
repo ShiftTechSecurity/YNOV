@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+![Alt text](Images/Pasted%20image%2020241107113744.png)
+
+>>>>>>> e8075d96c778d935dcb46f7e5525608c99e6b376
 ## Partie 1 : Création d'un Load Balancer (LB)
 
 1. Créer un Target Group “TRI_TargetGroup”. Par la suite, vous ajouterez les instances EC2 dans ce Target Group
