@@ -3,27 +3,27 @@
 1. Créer un Target Group “TRI_TargetGroup”. Par la suite, vous ajouterez les instances EC2 dans ce Target Group
 
 - Confirmation de la création de la Target Group "TTE-TargetGroup"
-![[Pasted image 20241107113744.png]]
+![Alt text](Images/Pasted%20image%20241107113744.png)
 
 2. Créer un Load Balancer “TRI_LoadBalancer” de type Application Load Balancer qui utilise le Target Group créé précédemment
 
 - Confirmation de la création du Load Balancer "TTE-LoadBalancer"
-![[Pasted image 20241107122048.png]]
+![Alt text](Images/Pasted%20image%20241107122048.png)
 
 3. Créer un Security Group “TRI_SecurityGroup_LB” et appliquer ce groupe de sécurité sur le Load Balancer créé précédemment.
 
 - Confirmation de la création de la Security Group "TTE-SecurityGroup-LB"
-![[Pasted image 20241107114151.png]]
+![Alt text](Images/Pasted%20image%20241107114151.png)
 
 - Confirmation de l'application de la Security Group "TTE-SecurityGroup-LB" sur le Load Balancer "TTE-LoadBalancer"
-![[Pasted image 20241107114225.png]]
+![Alt text](Images/Pasted%20image%20241107114225.png)
 
 ## Partie 2 : Création d’une Amazon Machine Image (AMI)
 
 1. Lancer une instance EC2 de base : Utilisez une AMI standard, telle qu'Amazon Linux 2.
 
 - Confirmation de la création de l'instance "TTE-AmazonLinux2"
-![[Pasted image 20241107114316.png]]
+![Alt text](Images/Pasted%20image%20241107114316.png)
 
 2. Installer un serveur web
 
@@ -33,7 +33,7 @@ ssh -i "TTE-KeyPair.pem" ec2-user@ec2-34-244-251-111.eu-west-1.compute.amazonaws
 ```
 
 - Confirmation de la connexion SSH au serveur
-![[Pasted image 20241107114428.png]]
+![Alt text](Images/Pasted%20image%20241107114428.png)
 
 - Commande pour l'installation du serveur Web
 ```
@@ -44,7 +44,7 @@ sudo systemctl enable httpd
 ```
 
 - Confirmation de l'installation du serveur Web
-![[Pasted image 20241107114529.png]]
+![Alt text](Images/Pasted%20image%20241107114529.png)
 
 3. Créer un script pour récupérer et afficher les métadonnées
 
@@ -64,10 +64,10 @@ sudo chmod +x /var/www/html/metadata.sh
 ```
 
 - Confirmation de l'ajout du contenu du script metadata.sh
-![[Pasted image 20241107123811.png]]
+![Alt text](Images/Pasted%20image%20241107123811.png)
 
 - Confirmation de l'exécution de commande chmod pour rendre exécutable le script metadata.sh
-![[Pasted image 20241107114623.png]]
+![Alt text](Images/Pasted%20image%20241107114623.png)
 
 4. Automatiser l'exécution du script au démarrage
 
@@ -80,7 +80,7 @@ sudo systemctl status crond.service
 ```
 
 - Confirmation de l'installation de crontab
-![[Pasted image 20241107114705.png]]
+![Alt text](Images/Pasted%20image%20241107114705.png)
 
 - Commandes pour changer le mot de passe root et se connecter avec le compte root pour permettre l'accès à crontab
 ```
@@ -94,7 +94,7 @@ su root
 ```
 
 - Confirmation du modification du mot de passe root, et connexion avec l'utilisateur root
-![[Pasted image 20241107114751.png]]
+![Alt text](Images/Pasted%20image%20241107114751.png)
 
 - Commandes pour la création d'une crontab pour l'exécution du script au démarrage
 ```
@@ -107,38 +107,38 @@ crontab -e
 ```
 
 - Confirmation de l'ajout de la ligne dans crontab
-![[Pasted image 20241107114815.png]]
+![Alt text](Images/Pasted%20image%20241107114815.png)
 
 5. Créer une AMI personnalisée
 
 - Confirmation de la création de l'AMI personnalisée "TTE-MyFirstAMI"
-![[Pasted image 20241107114858.png]]
+![Alt text](Images/Pasted%20image%20241107114858.png)
 
 ## Partie 3 : Création de la première instance EC2 et configuration des security groups
 
 1. Créer un Security Group “TRI_SecurityGroup_EC2” et ajouter votre instance créée précédemment à ce Security Group
 
 - Confirmation de la création de la Security Group "TTE-SecurityGroup-EC2"
-![[Pasted image 20241107122536.png]]
+![Alt text](Images/Pasted%20image%20241107122536.png)
 
 - Confirmation de l'ajout de la Security Group à l'instance "TTE-LinuxAmazon2"
-![[Pasted image 20241107115242.png]]
+![Alt text](Images/Pasted%20image%20241107115242.png)
 
 2. Créer une instance EC2 “TRI_Instance1” qui utilise le Security Group “TRI_SecurityGroup_EC2” et l’AMI créée précédemment.
 
 - Confirmation de la création de l'instance "TTE-Instance1"
-![[Pasted image 20241107120340.png]]
+![Alt text](Images/Pasted%20image%20241107120340.png)
 
 - Confirmation de la configuration de la Security Group "TTE-SecurityGroup-EC2" sur l'instance "TTE-Instance1"
-![[Pasted image 20241107120422.png]]
+![Alt text](Images/Pasted%20image%20241107120422.png)
 
 3. Vérifier qu’en utilisant l’adresse de votre LoadBalancer dans un navigateur, vous accédez bien au serveur web et aux métadonnées de votre instance EC2
 
 - Confirmation de la bonne santé de la cible d'instance "TTE-Instance1"
-![[Pasted image 20241107122825.png]]
+![Alt text](Images/Pasted%20image%20241107122825.png)
 
 - Confirmation de l'accès à l'instance "TTE-Instance1" via le Load Balancer "TTE-LoadBalancer"
-![[Pasted image 20241107133547.png]]
+![Alt text](Images/Pasted%20image%20241107133547.png)
 
 ## Partie 4 : Installation de l'AWS CLI et ajout d’une seconde instance
 
@@ -154,10 +154,10 @@ aws --version
 ```
 
 - Confirmation de l'installation de AWS CLI
-![[Pasted image 20241107134005.png]]
+![Alt text](Images/Pasted%20image%20241107134005.png)
 
 - Confirmation de la création d'une access key pour l'accès via AWS CLI
-![[Pasted image 20241107135553.png]]
+![Alt text](Images/Pasted%20image%20241107135553.png)
 
 - Commande pour la configuration de AWS CLI via l'invité de commande
 ```
@@ -165,7 +165,7 @@ aws configure
 ```
 
 - Confirmation de la configuration de AWS CLI via l'invité de commande
-![[Pasted image 20241107135730.png]]
+![Alt text](Images/Pasted%20image%20241107135730.png)
 
 - Commande pour vérifier la connexion à AWS via AWS CLI
 ```
@@ -173,7 +173,7 @@ aws sts get-caller-identity
 ```
 
 - Confirmation de la connexion à AWS via AWS CLI
-![[Pasted image 20241107140000.png]]
+![Alt text](Images/Pasted%20image%20241107140000.png)
 
 2. Utiliser l’AWS CLI pour créer une seconde instance similaire à la première nommée “TRI_Instance 2”
 
@@ -318,7 +318,7 @@ aws ec2 run-instances \
 ```
 
 - Confirmation de la création de l'instance via le GUI de AWS
-![[Pasted image 20241107140723.png]]
+![Alt text](Images/Pasted%20image%20241107140723.png)
 
 3. Utiliser l’AWS CLI pour ajouter cette instance au Target Group créé dans la partie 1 du TP
 
@@ -333,18 +333,18 @@ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:eu-we
 ```
 
 - Confirmation de l'exécution des commandes pour l'ajout au Target Group "TTE-TargetGroup"
-![[Pasted image 20241107141152.png]]
+![Alt text](Images/Pasted%20image%20241107141152.png)
 
 - Confirmation de l'ajout de l'instance "TTE-Instance2" dans la Target Group "TTE-TargetGroup"
-![[Pasted image 20241107141744.png]]
+![Alt text](Images/Pasted%20image%20241107141744.png)
 
 - Vérification de la Ressource Map du Load Balancer "TTE-LoadBalancer"
-![[Pasted image 20241107141939.png]]
+![Alt text](Images/Pasted%20image%20241107141939.png)
 
 4. En utilisant l’adresse de votre Load Balancer, en rafraîchissant et en supprimant le cache de votre navigateur (ou en utilisant le mode privé du navigateur), vous devez observer la répartition de vos requêtes s’opérer.
 
 - Confirmation du bon fonctionnement du Load Balancer via navigateur internet
-![[Pasted image 20241107141844.png]]
+![Alt text](Images/Pasted%20image%20241107141844.png)
 
 - Monitoring du Load Balancer "TTE-LoadBalancer"
-![[Pasted image 20241107143201.png]]
+![Alt text](Images/Pasted%20image%20241107143201.png)
