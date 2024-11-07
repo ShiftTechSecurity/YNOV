@@ -1,8 +1,6 @@
-https://github.com/ShiftTechSecurity/YNOV/blob/main/3%20-%20TP%201%20-%20Infrastructure%20AWS/Images/Pasted%20image%2020241107113744.png
 
 ![Alt text](Images/Pasted%20image%2020241107113744.png)
 
-![Alt text](3%20-%20TP%201%20-%20Infrastructure%20AWS/Images/Pasted%20image%2020241107113744.png)
 
 ## Partie 1 : Création d'un Load Balancer (LB)
 
